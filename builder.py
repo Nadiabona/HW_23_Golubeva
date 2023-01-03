@@ -1,9 +1,11 @@
+import os
 from typing import Optional
 from functions import filter_query, unique_query, limit_query, map_query, sort_query
 
 
 def read_file(file_name: str):
     with open(file_name) as file:
+
         for line in file:
             yield line
 

@@ -5,7 +5,7 @@ VALID_CMD_COMMANDS = ('filter', 'unique', 'limit', 'map', 'sort')
 class RequestSchema(Schema):
     cmd = fields.Str(required = True)# провалидировали типы, что придут только строчки
     value = fields.Str()
-    filename = fields.Str()
+    file_name = fields.Str()
 
 
     @validates_schema

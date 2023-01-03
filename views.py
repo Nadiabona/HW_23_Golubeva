@@ -1,3 +1,5 @@
+import os
+
 from pyexpat.errors import messages
 
 from flask import Blueprint, request, jsonify, Response
@@ -8,7 +10,7 @@ from models import RequestSchema, BatchRequestSchema
 
 main_bp = Blueprint('main', __name__)
 
-#FILE_NAME = 'data/apache_logs.txt'
+#FILE_NAME = 'data/apache_logs_test.txt'
 
 @main_bp.route ('/perform_query', methods = ['POST'])
 def perform_query():
@@ -30,15 +32,16 @@ def perform_query():
             cmd = query['cmd'],
             value = query['value'],
             file_name = query['file_name'],
+            #'data/apache_logs_test.txt'
             data = result
         )
-
+    #with open(os.path.join(FILE_NAME)) as result:
     return jsonify(result)
 
     #вариант когда был вызов 1 или 2 запросов)
     # return jsonify(build_query(
     #     cmd = validated_data['cmd1'],
     #     value = validated_data['value1'],
-    #     file_name = 'data/apache_logs.txt',
+    #     file_name = 'data/apache_logs_test.txt',
     #     ),
     # )

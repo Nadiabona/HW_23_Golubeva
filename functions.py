@@ -16,4 +16,4 @@ def sort_query(value, data):
     reverse = value == 'desc' #в cmd будет приходить либо asc либо что-то другое, понять как сортировать
     return sorted(data, reverse = reverse) #сюда приходит флаг reverse
 #
-#res = filter_query("POST", 'data/apache_logs.txt')
+#res = filter_query("POST", 'data/apache_logs_test.txt')
