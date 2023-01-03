@@ -4,7 +4,8 @@ from functions import filter_query, unique_query, limit_query, map_query, sort_q
 
 
 def read_file(file_name: str):
-    with open(file_name) as file:
+    data_path = os.path.join('data', file_name)
+    with open(data_path) as file:
 
         for line in file:
             yield line
