@@ -1,6 +1,6 @@
 import os
 from typing import Optional
-from functions import filter_query, unique_query, limit_query, map_query, sort_query
+from functions import filter_query, unique_query, limit_query, map_query, sort_query, regex_query
 
 
 def read_file(file_name: str):
@@ -17,6 +17,7 @@ CMD_TO_FUNCTIONS = {
     'limit' : limit_query,
     'map' : map_query,
     'sort': sort_query,
+    'regex': regex_query
 }
 
 

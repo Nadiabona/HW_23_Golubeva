@@ -1,4 +1,11 @@
-def filter_query(value, data): #data - Iterable[str]
+import re
+from typing import Iterable
+def regex_query(value, data: Iterable[str]):
+    regex = re.compile(value)
+    return filter(lambda x: regex.search(x), data)
+    #return filter(lambda x: (re.match(regex,x) is not None, data))
+
+def filter_query(value, data:Iterable[str]):
     return filter(lambda x: value in x, data) #data - казываем, по чему мы перечисляемся, х - строка из data
 
 def unique_query(data, *args, **kwargs):
