@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, validates_schema, ValidationError
 
-VALID_CMD_COMMANDS = ('filter', 'unique', 'limit', 'map', 'sort', "regex")
+VALID_CMD_COMMANDS = ('filter', 'unique', 'limit', 'map', 'sort', 'regex')
 
 class RequestSchema(Schema):
     cmd = fields.Str(required = True)# провалидировали типы, что придут только строчки
