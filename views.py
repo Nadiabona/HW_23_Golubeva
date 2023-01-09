@@ -22,10 +22,10 @@ def perform_query():
         validated_data = BatchRequestSchema().load(data) #здесь нам возвращается словарь, где лежат queries
     except ValidationError as error:
         print(error.messages)
-        return jsonify(error, messages), 400 #то есть валидаци типов проходит до наше валидации
+        return jsonify(error, messages), 400
 
 
-    #Делаем вызов по цепочке - то есть резульиат 1 функции засовываем во вторую и так далее
+
     result = None
     for query in validated_data['queries']:
         result = build_query(
@@ -35,13 +35,4 @@ def perform_query():
 
             data = result
         )
-    #with open(os.path.join(FILE_NAME)) as result:
-    return jsonify(result)
 
-    #вариант когда был вызов 1 или 2 запросов)
-    # return jsonify(build_query(
-    #     cmd = validated_data['cmd1'],
-    #     value = validated_data['value1'],
-    #     file_name = 'data/apache_logs.txt',
-    #     ),
-    # )

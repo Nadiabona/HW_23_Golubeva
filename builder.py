@@ -22,6 +22,7 @@ CMD_TO_FUNCTIONS = {
 
 
 def build_query(cmd: str, value: str, file_name: str, data: Optional[list[str]]):
+    # type: ignore[operator]
     if data is None:  # значит это вызов первой функции
         prepared_data = read_file(file_name)
     else:
@@ -29,6 +30,51 @@ def build_query(cmd: str, value: str, file_name: str, data: Optional[list[str]])
 
         # TODO: маршрутизация
     return list(CMD_TO_FUNCTIONS[cmd](value = value, data = prepared_data))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # вариант, когда мы делали по доному-двум без вызова по чепочке
 # def build_query(cmd:str, value:str, file_name:str):
